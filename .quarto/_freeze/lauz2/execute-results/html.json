@@ -1,0 +1,11 @@
+{
+  "hash": "e5298264fb4d4012da07ca3cce6460f8",
+  "result": {
+    "markdown": "---\ntitle: \"lauz2\"\ntheme: morph\nexecute:\n  echo: false\n---\n\n## Quarto\n\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.\n\n\n\n::: {.panel-tabset}\n\n\n## Food\n\n:::: {.columns}\n\n::: {.column width=\"45%\"}\n\n::: {.cell execution_count=1}\n\n::: {.cell-output .cell-output-stdout}\n```\nHello\n```\n:::\n:::\n\n\n:::\n\n::: {.column width=\"10%\"}\n<!-- empty column to create gap -->\n:::\n\n::: {.column width=\"45%\"}\nand here\n\nMore text\n:::\n\n::::\n\n## Travel\n\nMore random shit\n\n:::\n\n",
+    "supporting": [
+      "lauz2_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
