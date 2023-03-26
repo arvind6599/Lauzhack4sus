@@ -10,9 +10,9 @@ from IPython.display import Markdown
 
 equivalences = [
     ("📺", "Streaming netflix for {} hours per day, over an entire year", 13.14),
-    ("🚌", "Travelling a total of {} buses per day, over an entire year", 22.67),
+    ("🚌", "Travelling a total of {} kms by bus per day, over an entire year", 22.67),
     ("☕", "Drinking around {} cups of coffee per day, over an entire year", 25.915),
-    ("🚗", "Travelling a total of {}km by car per day, over an entire year", 51.72),
+    ("🚗", "Travelling a total of {} kms by car per day, over an entire year", 51.72),
     ("💻", "Powering {} computer for 8 hours per day, over an entire year",  250.39),
     ("🧑", "The average monthly emission of {} persons living in Switzerland", 400.0)
 
