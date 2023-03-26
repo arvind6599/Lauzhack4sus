@@ -1,5 +1,4 @@
 *.html
-*.ipynb
 
 /_site/
 /.quarto/
