@@ -11,7 +11,7 @@ from IPython.display import Markdown, IFrame
 
 
 def get_co2_emissions():
-    return 5923.94
+    return 5924.92
 
 def get_n_eu_trips():
     return 2
@@ -28,17 +28,15 @@ def get_co2_emissions_percentile():
 
 :::: {.columns}
 
-::: {.column width="45%"}
-```{python}
-"Plotly graph"
-```
+::: {.column width="60%"}
+<iframe style="width:100%;height:400px" src="../data/travel_emissions.html"></iframe>
 :::
 
-::: {.column width="10%"}
+::: {.column width="5%"}
 <!-- empty column to create gap -->
 :::
 
-::: {.column width="45%"}
+::: {.column width="35%"}
 
 ```{python}
 Markdown(
@@ -46,7 +44,7 @@ f"""
 
 Total CO${{}}_2$ emissions: {get_co2_emissions()}kg.
 <br>
-__This puts you in the top {get_co2_emissions_percentile()} percentile of carbon emitters.__
+__This puts you in the {get_co2_emissions_percentile()}th percentile__ of carbon emitters.
 
 <div style="width: 100%; background-color: #ddd;">
   <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
