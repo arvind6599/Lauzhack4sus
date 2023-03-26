@@ -1,7 +1,97 @@
 ---
-title: "Compute"
+title: "Compute resources"
 execute:
   echo: false
+resources:
+- carbon_emission.html
 ---
 
-compute stuff here
+## Your recap
+
+```{python}
+from IPython.display import Markdown, IFrame
+import pandas as pd
+
+def get_co2_emissions():
+
+  df = pd.read_csv("../data/carbon_emissions.csv")
+
+  return df["Carbon Emission"].sum()
+
+def get_co2_emissions_percentile():
+  return 87
+
+def get_n_jobs():
+  df = pd.read_csv("../data/carbon_emissions.csv")
+
+  return df["numberofjobs"].sum()
+
+def get_n_jobs_effient_time():
+  return 24
+
+  return df["numberofjobs"].sum()
+
+def get_potential_savings():
+    return 56
+```
+
+:::: {.columns}
+
+::: {.column width="45%"}
+<iframe style="width:130%;height:430px" src="../data/carbon_emissions.html"></iframe>
+:::
+
+::: {.column width="10%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="45%"}
+
+```{python}
+Markdown(
+f"""
+
+<div style="width: 30%; background-color: #bd57bb;text-align: center;padding-top: 7px; padding-bottom: 1px;">
+   <font size="+3"><b> {get_n_jobs()} </b></font><br>total jobs
+</div>
+
+<div style="width: 30%; background-color: #9f79f7;text-align: center;padding-top: 7px; padding-bottom: 1px; margin-left: 35%; margin-top: -100px">
+   <font size="+3"><b> 46 </b></font><br>jobs of > 4h
+</div>
+
+<div style="width: 30%; background-color: #88b6f2;text-align: center;padding-top: 7px; padding-bottom: 1px; margin-left: 70%; margin-top: -100px">
+   <font size="+3"><b> {get_n_jobs_effient_time()} </b></font><br>well-scheduled jobs
+</div>
+
+
+<h4 style="font-weight: normal"> Total CO${{}}_2$ emissions: __{get_co2_emissions()} kg__.</h4>
+This puts you in the __{get_co2_emissions_percentile()}th percentile__ of carbon emitters.
+<div style="width: 100%; background-color: #ddd;">
+  <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
+  width: {get_co2_emissions_percentile()}%; background-color: #f45936;">{get_co2_emissions_percentile()}%</div>
+</div>
+<br>
+
+<h4 style="font-weight: normal"> **{get_n_jobs_effient_time()} /{get_n_jobs()} of jobs** were run at times with lower than average carbon footprint. </h4>
+You could have saved an additional __{get_potential_savings()} kg of carbon__ by scheduling jobs more efficiently.
+<div style="width: 100%; background-color: #ddd;">
+  <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
+  width: {100 * get_n_jobs_effient_time() / get_n_jobs()}%; background-color: #f0a65d;">{get_n_jobs_effient_time()} /{get_n_jobs()}</div>
+</div>
+<br>
+"""
+)
+```
+:::
+
+::::
+
+## Possible alternatives / methods of saving
+
+Calculate your carbon emissions by uploading model specifications to [Code Carbon](https://codecarbon.io/) to compute the carbon emissions from alternative cloud computing services such as :
+
+
+
+```{python}
+IFrame("https://vod-progressive.akamaized.net/exp=1679813147~acl=%2Fvimeo-transcode-storage-prod-us-east1-h264-1080p%2F01%2F1512%2F19%2F482564729%2F2159704939.mp4~hmac=f5acecbc19e36037d538d9a5f6d8e9c19938ed300bfbd4d462bda1bc8e08429f/vimeo-transcode-storage-prod-us-east1-h264-1080p/01/1512/19/482564729/2159704939.mp4", width=800, height=600)
+```
