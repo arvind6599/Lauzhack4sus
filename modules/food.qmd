@@ -4,22 +4,16 @@ execute:
   echo: false
 ---
 
-## Your recap
-
 ```{python}
 from IPython.display import Markdown, IFrame
-
-
-def get_ecoscore():
-    return "NYI"
 ```
+
+## Your Ecolens Recap
 
 :::: {.columns}
 
 ::: {.column width="45%"}
-```{python}
-"Plotly graph"
-```
+![](../assets/ecolens_0.png){width=80%}
 :::
 
 ::: {.column width="10%"}
@@ -27,19 +21,10 @@ def get_ecoscore():
 :::
 
 ::: {.column width="45%"}
-
-```{python}
-Markdown(
-f"""
-- Average ecoScore: {get_ecoscore()}"""
-)
-```
-
+![](../assets/ecolens_1.png){width=80%}
 :::
 
 ::::
-
-Useful links \<links related to food stuff\>
 
 ## Hungry for more?
 
