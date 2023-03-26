@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Summary",
+    "section": "",
+    "text": "-\n\n\nYour CO\\({}_2\\) emissions are equivalent to:\n\n\n\n 📺 484 📺 Streaming netflix for 484.849 hours per day, over an entire year\n\n\n ☕ 245 ☕ Drinking 245.839 cups of coffee per day, over an entire year\n\n\n 💻 25 💻 Powering 25.444 computer for 8 hours per day, over an entire year\n\n\n\n 🧑 15 🧑 The average monthly emission of 15.927 persons living in Switzerland\n\n\n 🚌 7 🚌 The commute (~37km) of 7.589 buses per day, over an entire year\n\n\n 🚗 3 🚗 The commute (~37km) of 3.328 cars per day, over an entire year"
+  },
+  {
+    "objectID": "index.html#quarto",
+    "href": "index.html#quarto",
+    "title": "Summary",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.\n\nFoodTravel\n\n\n\n\n\n\n'Hello'"
+  },
+  {
+    "objectID": "modules/compute.html",
+    "href": "modules/compute.html",
+    "title": "Compute resources",
+    "section": "",
+    "text": "78 total jobs\n\n\n 46 jobs of &gt; 4h\n\n\n 24 well-scheduled jobs\n\n\nThis puts you in the 87th percentile of carbon emitters.\n\n\n87%\n\n\n\n\nYou could have saved an additional 56 kg of carbon by scheduling jobs more efficiently.\n\n\n24 /78"
+  },
+  {
+    "objectID": "modules/food.html",
+    "href": "modules/food.html",
+    "title": "Food",
+    "section": "",
+    "text": "food stuff here"
+  },
+  {
+    "objectID": "modules/travel.html",
+    "href": "modules/travel.html",
+    "title": "Travel",
+    "section": "",
+    "text": "6 total trips\n\n\n 4 trips by flight\n\n\n 2 trains trips\n\n\nThis puts you in the 99th percentile of carbon emitters.\n\n\n99%\n\n\n\n\nYou could have saved an additional 148.41 kg of carbon by taking the train.\n\n\n1/2"
+  },
+  {
+    "objectID": "modules/travel.html#your-recap",
+    "href": "modules/travel.html#your-recap",
+    "title": "Travel",
+    "section": "",
+    "text": "6 total trips\n\n\n 4 trips by flight\n\n\n 2 trains trips\n\n\nThis puts you in the 99th percentile of carbon emitters.\n\n\n99%\n\n\n\n\nYou could have saved an additional 148.41 kg of carbon by taking the train.\n\n\n1/2"
+  },
+  {
+    "objectID": "modules/travel.html#planning-a-trip",
+    "href": "modules/travel.html#planning-a-trip",
+    "title": "Travel",
+    "section": "Planning a trip?",
+    "text": "Planning a trip?\nCalculate your flight emissions and consider traveling by train instead.\n\n\n“&gt;"
+  },
+  {
+    "objectID": "synthetic_data.html",
+    "href": "synthetic_data.html",
+    "title": "My Sustainability",
+    "section": "",
+    "text": "import airportsdata\nimport pycountry_convert as pc\nimport numpy as np\nimport pandas as pd\n\n\nflight_emission_df = pd.read_csv('./data/flight_emission_data.txt', header=0)\nflight_emission_df.head()\n\nairports = airportsdata.load('IATA')\nflight_emission_df['Country'] = flight_emission_df['Assigned airport'].map(\n    lambda x: np.nan if x not in airports.keys() else airports[x]['country']\n)\nflight_emission_df = flight_emission_df.dropna()\n\nflight_emission_df['Continent'] = flight_emission_df['Country'].map(\n    lambda x: pc.country_alpha2_to_continent_code(x)\n)\n\nflight_emission_df['CO2 RFI2.7 (t)'] /= flight_emission_df['# Flights']\nflight_emission_df['# Flights'] /= np.sum(flight_emission_df['# Flights'])\n\nprint(flight_emission_df.head())\n\n  Assigned airport  # Flights  CO2 RFI2.7 (t) Country Continent\n0              AAL   0.000115         0.05000      DK        EU\n1              AAR   0.000230         0.05000      DK        EU\n2              ABJ   0.001209         1.07619      CI        AF\n3              ABQ   0.000288         0.30000      US        NA\n4              ABZ   0.000058         0.20000      GB        EU\n\n\n\nimport datetime\n\nnum_researchers = 3000\n\nnum_choices = np.random.binomial(8, 0.3, num_researchers)\n\nsimulated_flight_df = {\n    'researcher_id': [],\n    'travel_type': [],\n    'month': [],\n    'country': [],\n    'continent': [],\n    'emission': []\n}\n\nmonths = [\n     datetime.datetime(2023, i, 1, 0, 0, 0, 0) for i in range(1, 13)\n]\n\nfor i in range(num_researchers):\n    choice_idxs = np.random.choice(np.arange(len(flight_emission_df)), size=num_choices[i], replace=True,\n                                   p=flight_emission_df['# Flights'].to_numpy())\n    for idx in choice_idxs:\n        continent = flight_emission_df.iloc[idx]['Continent']\n        travel_type = 'Train' if np.random.uniform(0, 1) &lt; 0.2 and continent == 'EU' else 'Flight'\n        emission = flight_emission_df.iloc[idx]['CO2 RFI2.7 (t)'] * 1000\n        if travel_type == 'Train':\n            emission /= 9.8\n\n        simulated_flight_df['researcher_id'].append(i)\n        simulated_flight_df['travel_type'].append(travel_type)\n        simulated_flight_df['month'].append(np.random.choice(months))\n        simulated_flight_df['country'].append(flight_emission_df.iloc[idx]['Country'])\n        simulated_flight_df['continent'].append(continent)\n        simulated_flight_df['emission'].append(emission)\n\nsimulated_flight_df = pd.DataFrame(simulated_flight_df)\n\n\nsimulated_flight_df.to_csv('./data/synthetic_emission_data.csv', index=False)\n\n\nimport random\n\nN = 12\n\nrandom.seed(42)\n\nx = random.sample(range(1, 100), N)\n\ndf = pd.DataFrame()\n\ndf[\"index\"] = [i for i in range(N)]\n\ndf[\"Carbon Emission\"] = x - np.min(x)\n\ndf[\"numberofjobs\"] = random.sample(range(1, 13), N)\n\nmonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'] \n\n\nfig = px.bar(df, x=months, y='Carbon Emission',\n             hover_data=['numberofjobs'], color='Carbon Emission',  color_continuous_scale='Inferno_r',\n            height=400)\nfig.update(layout_coloraxis_showscale=False)\nfig.update_layout(\n    xaxis = dict(\n        tickmode = 'linear',\n        tick0 = 0.5,\n        dtick = 0.75\n    )\n)\nfig.show()\nfig.update_layout(margin=dict(t=10))\nfig.write_html(\"./data/carbon_emissions.html\", config={\"displayModeBar\": False})\ndf.to_csv(\"../_includes/carbon_emissions.csv\", index_col=False)\n\nUnable to display output for mime type(s): application/vnd.plotly.v1+json\n\n\n\nimport pandas as pd\nimport plotly.express as px\n\ndf = pd.read_csv(\"../_includes/carbon_emissions.csv\", index_col=False)\nmonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'] \nfig = px.bar(df, x=months, y='Carbon Emission',\n             hover_data=['numberofjobs'], color='Carbon Emission', color_continuous_scale='turbo',\n            height=400, title = \"Carbon EmissionS from computations by Month\")\nfig.show()"
+  },
+  {
+    "objectID": "modules/compute.html#your-recap",
+    "href": "modules/compute.html#your-recap",
+    "title": "Compute resources",
+    "section": "",
+    "text": "78 total jobs\n\n\n 46 jobs of &gt; 4h\n\n\n 24 well-scheduled jobs\n\n\nThis puts you in the 87th percentile of carbon emitters.\n\n\n87%\n\n\n\n\nYou could have saved an additional 56 kg of carbon by scheduling jobs more efficiently.\n\n\n24 /78"
+  },
+  {
+    "objectID": "modules/compute.html#planning-a-trip",
+    "href": "modules/compute.html#planning-a-trip",
+    "title": "Compute",
+    "section": "Planning a trip?",
+    "text": "Planning a trip?\nCalculate your flight emissions and consider traveling with train instead."
+  },
+  {
+    "objectID": "modules/compute.html#possible-alternatives-or-methods-of-saving",
+    "href": "modules/compute.html#possible-alternatives-or-methods-of-saving",
+    "title": "Compute",
+    "section": "Possible Alternatives or methods of saving?",
+    "text": "Possible Alternatives or methods of saving?\nCalculate your carbon emissions by uploading model specifications to Code Carbon to compute the carbon emissions from alternative cloud computing services such as :"
+  },
+  {
+    "objectID": "modules/compute.html#possible-alternatives-methods-of-saving",
+    "href": "modules/compute.html#possible-alternatives-methods-of-saving",
+    "title": "Compute resources",
+    "section": "Possible alternatives / methods of saving",
+    "text": "Possible alternatives / methods of saving\nCalculate your carbon emissions by uploading model specifications to Code Carbon to compute the carbon emissions from alternative cloud computing services such as :"
+  },
+  {
+    "objectID": "modules/food.html#hungry-for-more",
+    "href": "modules/food.html#hungry-for-more",
+    "title": "Food on campus",
+    "section": "Hungry for more?",
+    "text": "Hungry for more?\n\n\n“&gt;"
+  },
+  {
+    "objectID": "modules/travel.html#planning-a-trip-for-an-upcoming-conference",
+    "href": "modules/travel.html#planning-a-trip-for-an-upcoming-conference",
+    "title": "Travel",
+    "section": "Planning a trip for an upcoming conference?",
+    "text": "Planning a trip for an upcoming conference?\nCalculate your flight emissions and consider traveling by train instead.\n\n\n“&gt;"
+  },
+  {
+    "objectID": "modules/travel.html#planning-a-trip-for-an-upcomingw-conference",
+    "href": "modules/travel.html#planning-a-trip-for-an-upcomingw-conference",
+    "title": "Travel",
+    "section": "Planning a trip for an upcomingw conference?",
+    "text": "Planning a trip for an upcomingw conference?\nCalculate your flight emissions and consider traveling by train instead.\n\n\n“&gt;"
+  },
+  {
+    "objectID": "modules/travel.html#planning-a-trip-for-an-upcoming-eventconference",
+    "href": "modules/travel.html#planning-a-trip-for-an-upcoming-eventconference",
+    "title": "Travel",
+    "section": "Planning a trip for an upcoming event/conference?",
+    "text": "Planning a trip for an upcoming event/conference?\nCalculate your flight emissions and consider traveling by train instead.\n\n\n“&gt;"
+  }
+]

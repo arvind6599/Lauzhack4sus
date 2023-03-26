@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   favicon: assets/logo.png
@@ -13,12 +14,12 @@ website:
     contents:
       - file: index.qmd
         icon: "bar-chart"
-      - file: modules/compute.qmd
-        icon: "cpu"
-      - file: modules/food.qmd
-        icon: "cup-hot"
       - file: modules/travel.qmd
         icon: "airplane"
+      - file: modules/food.qmd
+        icon: "cup-hot"
+      - file: modules/compute.qmd
+        icon: "cpu"
 
 
 format:

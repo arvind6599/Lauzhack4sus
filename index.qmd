@@ -15,7 +15,6 @@ equivalences = [
     ("🧑", "The average monthly emission of {} persons living in Switzerland", 400.0),  # source wikipedia
     ("🚌", "The commute (~37km) of {} buses per day, over an entire year", 839.5),
     ("🚗", "The commute (~37km) of {} cars per day, over an entire year", 1914.06)
-
 ]
 
 def get_as_graph():
@@ -42,7 +41,7 @@ def get_as_blocks():
         if i == 0:
             suffix = ""
         else:
-            suffix = f"margin-left: {width*col + offset*col}%; margin-top: -140px"
+            suffix = f"margin-left: {width*col + offset*col}%; margin-top: -110px"
         res += f'<div style="width: {width}%; background-color: {colours[i % len(colours)]};text-align: center;padding-top: 7px; padding-bottom: 1px;{suffix}">'
         res += f'   <font size="+3"><b> {icon} {int(n)} {icon} </b></font><br>{descr.format(f"{n:.3f}")}'
         res += f'</div>\n'

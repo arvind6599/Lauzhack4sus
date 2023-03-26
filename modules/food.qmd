@@ -28,6 +28,4 @@ from IPython.display import Markdown, IFrame
 
 ## Hungry for more?
 
-```{python}
-IFrame("https://campus.epfl.ch/food/", width=800, height=400)
-```
+<iframe style="width:100%;height:430px" src="https://campus.epfl.ch/food/"></iframe>"></iframe>
