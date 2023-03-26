@@ -2,13 +2,14 @@ project:
   type: website
 
 website:
+  favicon: assets/logo.png
   sidebar:
-    title: Campus Footprint
     style: "docked"
     background: "light"
     search: false
     border: true
-    logo: assets/epfl-logo.svg
+    logo: assets/logo.png
+    footer: Powered By ![](assets/epfl-logo.svg){width=50%}
     contents:
       - file: index.qmd
         icon: "bar-chart"
