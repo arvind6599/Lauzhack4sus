@@ -12,4 +12,8 @@ website:
 
 format:
   html:
-    page-layout: full
+    grid:
+      body-width: 2000px
+      sidebar-width: 200px
+      margin-width: 200px
+    toc: true
