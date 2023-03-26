@@ -55,7 +55,7 @@ f"""
 </div>
 
 
-<h4 style="font-weight: normal"> Total CO${{}}_2$ emissions: __{get_co2_emissions()}kg__.</h4>
+<h4 style="font-weight: normal"> Total CO${{}}_2$ emissions: __{get_co2_emissions()} kg__.</h4>
 This puts you in the __{get_co2_emissions_percentile()}th percentile__ of carbon emitters.
 <div style="width: 100%; background-color: #ddd;">
   <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
@@ -64,7 +64,7 @@ This puts you in the __{get_co2_emissions_percentile()}th percentile__ of carbon
 <br>
 
 <h4 style="font-weight: normal"> You made **{get_n_eu_trips_by_train()}/{get_n_eu_trips()} trips by train** within Europe. </h4>
-You could have saved an additional __{get_train_savings()}kg of carbon__ by taking the train.
+You could have saved an additional __{get_train_savings()} kg of carbon__ by taking the train.
 <div style="width: 100%; background-color: #ddd;">
   <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
   width: {100 * get_n_eu_trips_by_train()/get_n_eu_trips()}%; background-color: #f0e45d;">{get_n_eu_trips_by_train()}/{get_n_eu_trips()}</div>

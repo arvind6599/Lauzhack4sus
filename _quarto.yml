@@ -2,16 +2,39 @@ project:
   type: website
 
 website:
-  title: My Sustainability
   sidebar:
+    title: Campus Footprint
     style: "docked"
+    background: "light"
     search: false
+    border: true
+    logo: assets/epfl-logo.svg
     contents:
-      - index.qmd
-      - auto: "modules/*.qmd"
+      - file: index.qmd
+        icon: "bar-chart"
+      - file: modules/compute.qmd
+        icon: "cpu"
+      - file: modules/food.qmd
+        icon: "cup-hot"
+      - file: modules/travel.qmd
+        icon: "airplane"
+
 
 format:
   html:
+    theme:
+      # can use any of the following themes (below are ones with white bg):
+      # https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes
+      #- sketchy
+      #- simplex
+      #- sandstone
+      #- minty
+      #- materia
+      #- lumen
+      #- flatly
+      #- cosmo
+      #- pulse
+      - lux
     grid:
       body-width: 2000px
       sidebar-width: 200px
