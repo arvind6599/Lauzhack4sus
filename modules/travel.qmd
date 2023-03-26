@@ -79,7 +79,7 @@ You could have saved an additional __{get_train_savings()}kg of carbon__ by taki
 
 ## Planning a trip?
 
-Calculate your flight emissions and consider [traveling with train instead](https://www.sbb.ch/).
+Calculate your flight emissions and consider [traveling by train instead](https://www.sbb.ch/).
 
 
 ```{python}
