@@ -10,11 +10,11 @@ from IPython.display import Markdown
 
 equivalences = [
     ("📺", "Streaming netflix for {} hours per day, over an entire year", 13.14),
-    ("☕", "Drinking {} cups of coffee per day, over an entire year", 25.915),
+    ("🚌", "Travelling a total of {} buses per day, over an entire year", 22.67),
+    ("☕", "Drinking around {} cups of coffee per day, over an entire year", 25.915),
+    ("🚗", "Travelling a total of {}km by car per day, over an entire year", 51.72),
     ("💻", "Powering {} computer for 8 hours per day, over an entire year",  250.39),
-    ("🧑", "The average monthly emission of {} persons living in Switzerland", 400.0),  # source wikipedia
-    ("🚌", "The commute (~37km) of {} buses per day, over an entire year", 839.5),
-    ("🚗", "The commute (~37km) of {} cars per day, over an entire year", 1914.06)
+    ("🧑", "The average monthly emission of {} persons living in Switzerland", 400.0)
 
 ]
 
@@ -44,7 +44,7 @@ def get_as_blocks():
         else:
             suffix = f"margin-left: {width*col + offset*col}%; margin-top: -140px"
         res += f'<div style="width: {width}%; background-color: {colours[i % len(colours)]};text-align: center;padding-top: 7px; padding-bottom: 1px;{suffix}">'
-        res += f'   <font size="+3"><b> {icon} {int(n)} {icon} </b></font><br>{descr.format(f"{n:.3f}")}'
+        res += f'   <font size="+3"><b> {icon} {int(n)} {icon} </b></font><br>{descr.format(f"{n:.1f}")}'
         res += f'</div>\n'
         if col == n_cols - 1:
             res += "<br>"*6
@@ -59,7 +59,7 @@ usage_breakdown_md = get_as_blocks()
 # usage_breakdown_md = get_as_graph()
 ```
 
-![-](emissions.svg){width=600}
+![-](assets/emissions.svg){width=600}
 
 
 Your CO${}_2$ emissions are equivalent to:
