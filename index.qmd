@@ -19,10 +19,7 @@ Quarto enables you to weave together content and executable code into a finished
 :::: {.columns}
 
 ::: {.column width="45%"}
-```{python}
-while True:
-	print("Your input:", x)
-```
+
 :::
 
 ::: {.column width="10%"}
@@ -30,15 +27,16 @@ while True:
 :::
 
 ::: {.column width="45%"}
-and here
-
-More text
 :::
 
 ::::
 
 ## Travel
 
-More random shit
+```{python}
+from IPython.display import IFrame
+
+IFrame('https://co2.myclimate.org/en/flight_calculators/new', width=800, height=600)
+```
 
 :::
