@@ -92,6 +92,4 @@ Calculate your carbon emissions by uploading model specifications to [Code Carbo
 
 
 
-```{python}
-IFrame("https://vod-progressive.akamaized.net/exp=1679813147~acl=%2Fvimeo-transcode-storage-prod-us-east1-h264-1080p%2F01%2F1512%2F19%2F482564729%2F2159704939.mp4~hmac=f5acecbc19e36037d538d9a5f6d8e9c19938ed300bfbd4d462bda1bc8e08429f/vimeo-transcode-storage-prod-us-east1-h264-1080p/01/1512/19/482564729/2159704939.mp4", width=800, height=600)
-```
+<iframe style="width:100%;height:430px" src="https://codecarbon.io/"></iframe>
