@@ -1,0 +1,7 @@
+---
+title: "Compute"
+execute:
+  echo: false
+---
+
+compute stuff here
