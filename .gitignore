@@ -1,5 +1,5 @@
 *.html
 
-/_site
+/_site/
 /.quarto/
 /index_files/

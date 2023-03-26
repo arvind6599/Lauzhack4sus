@@ -1,3 +1,10 @@
+---
+title: "Summary"
+theme: morph
+execute:
+  echo: false
+---
+
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
@@ -10,10 +17,6 @@ Quarto enables you to weave together content and executable code into a finished
 :::: {.columns}
 
 ::: {.column width="45%"}
-```{python}
-while True:
-	print("Your input:", x)
-```
 :::
 
 ::: {.column width="10%"}
@@ -29,7 +32,9 @@ More text
 ::::
 
 ## Travel
+```{python}
+from IPython.display import IFrame
 
-More random shit
-
+IFrame('https://co2.myclimate.org/en/flight_calculators/new', width=800, height=600)
+```
 :::
