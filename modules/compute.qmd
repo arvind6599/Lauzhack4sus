@@ -10,13 +10,18 @@ resources:
 
 ```{python}
 from IPython.display import Markdown, IFrame
-
+import pandas as pd
 
 def get_co2_emissions():
-    return "NYI"
+  
+  df = pd.read_csv("../data/carbon_emissions.csv")
+
+  return df["Carbon Emission"].sum().astype(str)+ " Kg"
 
 def get_n_jobs():
-    return "NYI"
+  df = pd.read_csv("../data/carbon_emissions.csv")
+
+  return df["numberofjobs"].sum()
 
 def get_savings():
     return "NYI"
@@ -50,7 +55,8 @@ Useful links \<links related to travel\>
 
 ## Possible Alternatives or methods of saving?
 
-Calculate your carbon emissions by uploading model specifications to [Code Carbon](https://codecarbon.io/).
+Calculate your carbon emissions by uploading model specifications to [Code Carbon](https://codecarbon.io/) to compute the carbon emissions from alternative cloud computing services such as : 
+
 
 
 ```{python}

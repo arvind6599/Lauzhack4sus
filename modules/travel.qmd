@@ -11,35 +11,55 @@ from IPython.display import Markdown, IFrame
 
 
 def get_co2_emissions():
-    return "NYI"
+    return 5924.92
 
-def get_n_conferences():
-    return "NYI"
+def get_n_eu_trips():
+    return 2
+
+def get_n_eu_trips_by_train():
+    return 1
 
 def get_train_savings():
-    return "NYI"
+    return 148.41
+
+def get_co2_emissions_percentile():
+  return 99
 ```
 
 :::: {.columns}
 
-::: {.column width="45%"}
-```{python}
-"Plotly graph"
-```
+::: {.column width="60%"}
+<iframe style="width:100%;height:400px" src="../data/travel_emissions.html"></iframe>
 :::
 
-::: {.column width="10%"}
+::: {.column width="5%"}
 <!-- empty column to create gap -->
 :::
 
-::: {.column width="45%"}
+::: {.column width="35%"}
 
 ```{python}
 Markdown(
 f"""
-- CO${{}}_2$ emissions: {get_co2_emissions()}
-- Number of conferences: {get_n_conferences()}
-- Savings if train taken: {get_train_savings()}"""
+
+Total CO${{}}_2$ emissions: {get_co2_emissions()}kg.
+<br>
+__This puts you in the {get_co2_emissions_percentile()}th percentile__ of carbon emitters.
+
+<div style="width: 100%; background-color: #ddd;">
+  <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
+  width: {get_co2_emissions_percentile()}%; background-color: #f44336;">{get_co2_emissions_percentile()}%</div>
+</div>
+<br>
+
+You made {get_n_eu_trips_by_train()}/{get_n_eu_trips()} trips within Europe by train. <br>
+__You could have saved an additional {get_train_savings()}kg of carbon by taking the train.__
+<div style="width: 100%; background-color: #ddd;">
+  <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
+  width: {100 * get_n_eu_trips_by_train()/get_n_eu_trips()}%; background-color: #f0e45d;">{get_n_eu_trips_by_train()}/{get_n_eu_trips()}</div>
+</div>
+<br>
+"""
 )
 ```
 :::

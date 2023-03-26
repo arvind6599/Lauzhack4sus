@@ -9,3 +9,11 @@ website:
     contents:
       - index.qmd
       - auto: "modules/*.qmd"
+
+format:
+  html:
+    grid:
+      body-width: 2000px
+      sidebar-width: 200px
+      margin-width: 200px
+    toc: true
