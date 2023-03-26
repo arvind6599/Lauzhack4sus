@@ -9,8 +9,6 @@ execute:
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
-
-
 ::: {.panel-tabset}
 
 
@@ -19,7 +17,9 @@ Quarto enables you to weave together content and executable code into a finished
 :::: {.columns}
 
 ::: {.column width="45%"}
-
+```{python}
+"Hello"
+```
 :::
 
 ::: {.column width="10%"}
