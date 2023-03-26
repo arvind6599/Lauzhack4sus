@@ -18,6 +18,9 @@ def get_n_conferences():
 
 def get_train_savings():
     return "NYI"
+
+def get_co2_emissions_percentile():
+  return 99
 ```
 
 :::: {.columns}
@@ -37,7 +40,17 @@ def get_train_savings():
 ```{python}
 Markdown(
 f"""
-- CO${{}}_2$ emissions: {get_co2_emissions()}
+
+Total CO${{}}_2$ emissions: {get_co2_emissions()}.
+<br>
+__This puts you in the top {get_co2_emissions_percentile()} percentile of carbon emitters.__
+
+<div style="width: 100%; background-color: #ddd;">
+  <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
+  width: {get_co2_emissions_percentile()}%; background-color: #f44336;">{get_co2_emissions_percentile()}%</div>
+</div>
+<br>
+
 - Number of conferences: {get_n_conferences()}
 - Savings if train taken: {get_train_savings()}"""
 )
