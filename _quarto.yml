@@ -9,7 +9,7 @@ website:
     search: false
     border: true
     logo: assets/logo.png
-    footer: Powered By ![](assets/epfl-logo.svg){width=50%}
+    footer: Powered By ![](/assets/epfl-logo.svg){width=50%}
     contents:
       - file: index.qmd
         icon: "bar-chart"
