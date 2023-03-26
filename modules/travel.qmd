@@ -77,11 +77,8 @@ You could have saved an additional __{get_train_savings()} kg of carbon__ by tak
 
 ::::
 
-## Planning a trip?
+## Planning a trip for an upcoming event/conference?
 
 Calculate your flight emissions and consider [traveling by train instead](https://www.sbb.ch/).
 
-
-```{python}
-IFrame("https://sustainabletravel.org/wp-content/plugins/sti_client/src/shortcode/shortcode.php?api_key=STIKEY_641f913dadff1832336844&primary_color=%23008370&secondary_color=%23f7961f&light_primary_color=%2366e9d6&sort_order=Flight", width=800, height=600)
-```
+<iframe style="width:100%;height:430px" src="https://sustainabletravel.org/wp-content/plugins/sti_client/src/shortcode/shortcode.php?api_key=STIKEY_641f913dadff1832336844&primary_color=%23008370&secondary_color=%23f7961f&light_primary_color=%2366e9d6&sort_order=Flight"></iframe>"></iframe>
