@@ -4,4 +4,45 @@ execute:
   echo: false
 ---
 
-food stuff here
+## Your recap
+
+```{python}
+from IPython.display import Markdown, IFrame
+
+
+def get_ecoscore():
+    return "NYI"
+```
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{python}
+"Plotly graph"
+```
+:::
+
+::: {.column width="10%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="45%"}
+
+```{python}
+Markdown(
+f"""
+- Average ecoScore: {get_ecoscore()}"""
+)
+```
+
+:::
+
+::::
+
+Useful links \<links related to food stuff\>
+
+## Hungry for more?
+
+```{python}
+IFrame("https://campus.epfl.ch/food/", width=800, height=400)
+```
