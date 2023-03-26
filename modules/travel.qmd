@@ -11,13 +11,16 @@ from IPython.display import Markdown, IFrame
 
 
 def get_co2_emissions():
-    return "NYI"
+    return 5923.94
 
-def get_n_conferences():
-    return "NYI"
+def get_n_eu_trips():
+    return 2
+
+def get_n_eu_trips_by_train():
+    return 1
 
 def get_train_savings():
-    return "NYI"
+    return 148.41
 
 def get_co2_emissions_percentile():
   return 99
@@ -41,7 +44,7 @@ def get_co2_emissions_percentile():
 Markdown(
 f"""
 
-Total CO${{}}_2$ emissions: {get_co2_emissions()}.
+Total CO${{}}_2$ emissions: {get_co2_emissions()}kg.
 <br>
 __This puts you in the top {get_co2_emissions_percentile()} percentile of carbon emitters.__
 
@@ -51,8 +54,14 @@ __This puts you in the top {get_co2_emissions_percentile()} percentile of carbon
 </div>
 <br>
 
-- Number of conferences: {get_n_conferences()}
-- Savings if train taken: {get_train_savings()}"""
+You made {get_n_eu_trips_by_train()}/{get_n_eu_trips()} trips within Europe by train. <br>
+__You could have saved an additional {get_train_savings()}kg of carbon by taking the train.__
+<div style="width: 100%; background-color: #ddd;">
+  <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; color: white;
+  width: {100 * get_n_eu_trips_by_train()/get_n_eu_trips()}%; background-color: #f0e45d;">{get_n_eu_trips_by_train()}/{get_n_eu_trips()}</div>
+</div>
+<br>
+"""
 )
 ```
 :::
