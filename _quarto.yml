@@ -1,5 +1,11 @@
 project:
-  title: "lauz2"
+  type: website
 
-
-
+website:
+  title: My Sustainability
+  sidebar:
+    style: "docked"
+    search: false
+    contents:
+      - index.qmd
+      - auto: "modules/*.qmd"
