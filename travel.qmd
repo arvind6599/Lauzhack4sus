@@ -1,0 +1,59 @@
+---
+title: "Travel"
+theme: morph
+execute:
+  echo: false
+---
+
+## Your recap
+
+```{python}
+from IPython.display import Markdown, IFrame
+
+
+def get_co2_emissions():
+    return "NYI"
+
+def get_n_conferences():
+    return "NYI"
+
+def get_train_savings():
+    return "NYI"
+```
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{python}
+"Plotly graph"
+```
+:::
+
+::: {.column width="10%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="45%"}
+
+```{python}
+Markdown(
+f"""
+- CO${{}}_2$ emissions: {get_co2_emissions()}
+- Number of conferences: {get_n_conferences()}
+- Savings if train taken: {get_train_savings()}"""
+)
+```
+:::
+
+::::
+
+Useful links \<links related to travel\>
+
+## Planning a trip?
+
+Calculate your flight emissions and consider [traveling with train instead](https://www.sbb.ch/).
+
+
+```{python}
+IFrame("https://sustainabletravel.org/wp-content/plugins/sti_client/src/shortcode/shortcode.php?api_key=STIKEY_641f913dadff1832336844&primary_color=%23008370&secondary_color=%23f7961f&light_primary_color=%2366e9d6&sort_order=Flight", width=800, height=600)
+```
