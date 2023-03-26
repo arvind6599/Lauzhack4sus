@@ -2,6 +2,57 @@
 title: "Compute"
 execute:
   echo: false
+resources: 
+- carbon_emission.html
 ---
 
-compute stuff here
+## Your recap
+
+```{python}
+from IPython.display import Markdown, IFrame
+
+
+def get_co2_emissions():
+    return "NYI"
+
+def get_n_jobs():
+    return "NYI"
+
+def get_savings():
+    return "NYI"
+```
+
+:::: {.columns}
+
+::: {.column width="45%"}
+<iframe style="width:130%;height:430px" src="../data/carbon_emissions.html"></iframe>
+:::
+
+::: {.column width="10%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="45%"}
+
+```{python}
+Markdown(
+f"""
+- Total CO${{}}_2$ emissions: {get_co2_emissions()}
+- Number of jobs: {get_n_jobs()}
+- Possible savings using scheduling: {get_savings()}"""
+)
+```
+:::
+
+::::
+
+Useful links \<links related to travel\>
+
+## Possible Alternatives or methods of saving?
+
+Calculate your carbon emissions by uploading model specifications to [Code Carbon](https://codecarbon.io/).
+
+
+```{python}
+IFrame("https://vod-progressive.akamaized.net/exp=1679813147~acl=%2Fvimeo-transcode-storage-prod-us-east1-h264-1080p%2F01%2F1512%2F19%2F482564729%2F2159704939.mp4~hmac=f5acecbc19e36037d538d9a5f6d8e9c19938ed300bfbd4d462bda1bc8e08429f/vimeo-transcode-storage-prod-us-east1-h264-1080p/01/1512/19/482564729/2159704939.mp4", width=800, height=600)
+```
