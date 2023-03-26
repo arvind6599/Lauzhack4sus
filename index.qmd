@@ -3,3 +3,67 @@ title: "Summary"
 execute:
   echo: false
 ---
+
+```{python}
+import plotly.graph_objects as go
+from IPython.display import Markdown
+
+equivalences = [
+    ("📺", "Streaming netflix for {} hours per day, over an entire year", 13.14),
+    ("☕", "Drinking {} cups of coffee per day, over an entire year", 25.915),
+    ("💻", "Powering {} computer for 8 hours per day, over an entire year",  250.39),
+    ("🧑", "The average monthly emission of {} persons living in Switzerland", 400.0),  # source wikipedia
+    ("🚌", "The commute (~37km) of {} buses per day, over an entire year", 839.5),
+    ("🚗", "The commute (~37km) of {} cars per day, over an entire year", 1914.06)
+
+]
+
+def get_as_graph():
+    res = ""
+    n_max = 40
+    for icon, descr, cost in equivalences:
+        n = co2/cost
+        if n > n_max:
+            icons = icon*n_max + "..."
+        else:
+            icons = icon*int(n)
+        res += descr.format(f"{n:.3f}") + "<br>" + icons + "\n\n"
+    return res
+
+def get_as_blocks():
+    n_cols = 3
+    offset = 5
+    width = 30
+    colours = ["#bd57bb", "#9f79f7", "#88b6f2", "#f0a65d"]
+    res = ""
+    for i, (icon, descr, cost) in enumerate(equivalences):
+        n = co2/cost
+        col = i % n_cols
+        if i == 0:
+            suffix = ""
+        else:
+            suffix = f"margin-left: {width*col + offset*col}%; margin-top: -140px"
+        res += f'<div style="width: {width}%; background-color: {colours[i % len(colours)]};text-align: center;padding-top: 7px; padding-bottom: 1px;{suffix}">'
+        res += f'   <font size="+3"><b> {icon} {int(n)} {icon} </b></font><br>{descr.format(f"{n:.3f}")}'
+        res += f'</div>\n'
+        if col == n_cols - 1:
+            res += "<br>"*6
+    return res
+
+
+# usage breakdown markdown
+co2_travel = 5924.92
+co2_computing = 446.0
+co2 = co2_travel + co2_computing
+usage_breakdown_md = get_as_blocks()
+# usage_breakdown_md = get_as_graph()
+```
+
+![-](emissions.svg){width=600}
+
+
+Your CO${}_2$ emissions are equivalent to:
+
+```{python}
+Markdown(usage_breakdown_md)
+```
